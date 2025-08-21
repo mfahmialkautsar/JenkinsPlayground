@@ -1,16 +1,13 @@
 name: Java CI
 on: [push]
 jobs:
-  jenkins-container-pipeline:
+  jenkins-static-image-pipeline:
     runs-on: ubuntu-latest
-    container:
-      image: jenkins/jenkinsfile-runner:adoptopenjdk-8-alpine
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v2
       - uses:
-          jenkinsci/jfr-container-action@master
+          jenkinsci/jfr-static-image-action@master
         with:
           command: run
           jenkinsfile: Jenkinsfile
           pluginstxt: plugins.txt
-          jcasc: jcasc.yml
