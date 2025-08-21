@@ -4,8 +4,11 @@ jobs:
   jenkins-container-pipeline:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/jenkinsci/jenkinsfile-runner:main
+      image: ghcr.io/jenkinsci/jenkinsfile-runner:master
     steps:
+      - run: |
+          curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+          apt-get install -y nodejs
       - uses: actions/checkout@v2
       - uses:
           jenkinsci/jfr-container-action@master
