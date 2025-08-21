@@ -4,7 +4,7 @@ jobs:
   jenkins-container-pipeline:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/jenkinsci/jenkinsfile-runner:adoptopenjdk-8-alpine
+      image: jenkins/jenkinsfile-runner:adoptopenjdk-8-alpine
     steps:
       - uses: actions/checkout@v5
       - uses:
